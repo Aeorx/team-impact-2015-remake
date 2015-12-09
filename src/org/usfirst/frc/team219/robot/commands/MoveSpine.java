@@ -1,39 +1,37 @@
 package org.usfirst.frc.team219.robot.commands;
 
-import org.usfirst.frc.team219.robot.Robot;
-import org.usfirst.frc.team219.robot.RobotMap;
-
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Drive extends Command{
-	public Drive()
-	{
-		requires(Robot.driveTrain);
-	}
+public class MoveSpine extends Command{
+
 	@Override
 	protected void initialize() {
+		// TODO Auto-generated method stub
 		
 	}
+
 	@Override
 	protected void execute() {
-		Robot.driveTrain.MecanumDrive(Robot.oi.stick);
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	protected boolean isFinished() {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	protected void end() {
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	protected void interrupted() {
-		end();
-
+		// TODO Auto-generated method stub
+		
 	}
 
 }

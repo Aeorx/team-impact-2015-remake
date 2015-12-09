@@ -2,6 +2,7 @@ package org.usfirst.frc.team219.robot;
 
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.RobotDrive;
 
 /**
@@ -17,6 +18,7 @@ public class RobotMap {
 	public static CANTalon frontRight;
 	public static CANTalon backRight;
 	public static RobotDrive driveTrain;
+	public static DigitalInput spineEncoder;
 	
 	public static void init()
 	{
@@ -26,6 +28,7 @@ public class RobotMap {
 		frontRight = new CANTalon(3);
 		backRight = new CANTalon(4);
 		driveTrain = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
+		spineEncoder = new DigitalInput(0);
 
 	}
 

@@ -11,13 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DriveTrain extends Subsystem{
 
-	RobotDrive robotDrive;
-
-	public DriveTrain()
-	{
-		robotDrive = RobotMap.driveTrain;
-	}
-
+	RobotDrive robotDrive = RobotMap.driveTrain;
 	/**Makes the default command of the robot drive */
 	@Override
 	protected void initDefaultCommand() 
@@ -29,7 +23,7 @@ public class DriveTrain extends Subsystem{
 	 * @param stick The controller you're using*/
 	public void MecanumDrive(Joystick stick)
 	{
-		robotDrive.mecanumDrive_Cartesian(stick.getX()*.5, stick.getY()*.5, stick.getRawAxis(4), 0);
+		robotDrive.mecanumDrive_Polar(stick.getMagnitude(),stick.getDirectionRadians(),stick.getTwist());
 	}
 
 	/**stops the robot */
