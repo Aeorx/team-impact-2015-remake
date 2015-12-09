@@ -39,6 +39,7 @@ public class Robot extends IterativeRobot {
 		RobotMap.init();
 		driveTrain = new DriveTrain();
 		oi = new OI();
+		/*
 		  frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
 
 	        // the camera name (ex "cam0") can be found through the roborio web interface
@@ -47,6 +48,7 @@ public class Robot extends IterativeRobot {
 	        NIVision.IMAQdxConfigureGrab(session);
 	        
 	        NIVision.IMAQdxStartAcquisition(session);
+	        */
 	
 	}
 
@@ -75,8 +77,8 @@ public class Robot extends IterativeRobot {
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
 		if (autonomousCommand != null) autonomousCommand.cancel();
-        NIVision.IMAQdxGrab(session, frame, 1);
-        CameraServer.getInstance().setImage(frame);
+       /* NIVision.IMAQdxGrab(session, frame, 1);
+        CameraServer.getInstance().setImage(frame);*/
     
 	}
 
@@ -85,7 +87,7 @@ public class Robot extends IterativeRobot {
 	 * You can use it to reset subsystems before shutting down.
 	 */
 	public void disabledInit(){
-        NIVision.IMAQdxStopAcquisition(session);
+        //NIVision.IMAQdxStopAcquisition(session);
 	}
 
 	/**

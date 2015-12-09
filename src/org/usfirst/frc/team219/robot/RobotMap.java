@@ -4,6 +4,7 @@ package org.usfirst.frc.team219.robot;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.RobotDrive.MotorType;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -23,11 +24,14 @@ public class RobotMap {
 	public static void init()
 	{
 		spine = new CANTalon(5);
-		frontLeft = new CANTalon(1);
-		backLeft = new CANTalon(2);
-		frontRight = new CANTalon(3);
-		backRight = new CANTalon(4);
+		frontLeft = new CANTalon(2);
+		backLeft = new CANTalon(4);
+		frontRight = new CANTalon(1);
+		backRight = new CANTalon(3);
+		frontLeft.reverseOutput(true);
 		driveTrain = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
+		driveTrain.setInvertedMotor(MotorType.kFrontRight, true);
+		driveTrain.setInvertedMotor(MotorType.kRearRight, true);
 		spineEncoder = new DigitalInput(0);
 
 	}

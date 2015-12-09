@@ -14,11 +14,11 @@ import org.usfirst.frc.team219.robot.commands.*;
 public class OI 
 {
 	public Joystick stick;
-	public Button a;
+	//public Button a;
 	public OI()
 	{
 		stick = new Joystick(0);
-		a = new JoystickButton(stick,1);
+		//a = new JoystickButton(stick,1);
 	}
 	public Joystick getStick()
 	{

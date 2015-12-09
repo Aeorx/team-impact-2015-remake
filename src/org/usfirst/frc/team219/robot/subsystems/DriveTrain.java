@@ -13,6 +13,11 @@ public class DriveTrain extends Subsystem{
 
 	RobotDrive robotDrive = RobotMap.driveTrain;
 	/**Makes the default command of the robot drive */
+
+	public DriveTrain()
+	{
+		
+	}
 	@Override
 	protected void initDefaultCommand() 
 	{
@@ -23,7 +28,12 @@ public class DriveTrain extends Subsystem{
 	 * @param stick The controller you're using*/
 	public void MecanumDrive(Joystick stick)
 	{
-		robotDrive.mecanumDrive_Polar(stick.getMagnitude(),stick.getDirectionRadians(),stick.getTwist());
+		double magnitude = stick.getMagnitude();
+		if(Math.abs(magnitude)<= .2)
+			magnitude = 0;
+		robotDrive.mecanumDrive_Polar(magnitude,stick.getDirectionDegrees(),stick.getRawAxis(4));
+		System.out.println(stick.getMagnitude());
+		
 	}
 
 	/**stops the robot */
