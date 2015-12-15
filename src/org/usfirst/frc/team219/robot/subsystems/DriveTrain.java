@@ -3,16 +3,23 @@ package org.usfirst.frc.team219.robot.subsystems;
 import org.usfirst.frc.team219.robot.RobotMap;
 import org.usfirst.frc.team219.robot.commands.*;
 
+import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DriveTrain extends Subsystem{
-
 	RobotDrive robotDrive = RobotMap.driveTrain;
+
 	/**Makes the default command of the robot drive */
+	public DriveTrain()
+	{
+		
+	}
 	@Override
 	protected void initDefaultCommand() 
 	{
@@ -23,7 +30,12 @@ public class DriveTrain extends Subsystem{
 	 * @param stick The controller you're using*/
 	public void MecanumDrive(Joystick stick)
 	{
-		robotDrive.mecanumDrive_Polar(stick.getMagnitude(),stick.getDirectionRadians(),stick.getTwist());
+		double magnitude = stick.getMagnitude();
+		if(Math.abs(stick.getMagnitude()) <= .2){
+			magnitude = 0;
+		}
+			
+		robotDrive.mecanumDrive_Polar(magnitude,stick.getDirectionDegrees(),stick.getRawAxis(4));
 	}
 
 	/**stops the robot */

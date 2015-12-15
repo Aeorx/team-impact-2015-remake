@@ -19,7 +19,7 @@ public class MoveSpine extends Command{
 
 	@Override
 	protected void execute() {
-		Robot.spine.controlSpine(Robot.oi.stick.getY());
+		Robot.spine.controlSpine(Robot.oi.spineController);
 	}
 
 	@Override

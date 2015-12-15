@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Joystick.RumbleType;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Spine extends Subsystem{
@@ -14,7 +15,7 @@ public class Spine extends Subsystem{
 	DigitalInput limitTop;
 	DigitalInput limitBot;
 	CANTalon spineTalon;
-	
+
 	public Spine()
 	{
 		spineTalon = RobotMap.spineTalon;
@@ -26,18 +27,30 @@ public class Spine extends Subsystem{
 	@Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new MoveSpine());
-		
+
 	}
-	
-	public void controlSpine(double speed)
+
+	public void controlSpine(Joystick stick)
 	{
-		if(limitTop.get() && limitBot.get())
-			spineTalon.set(speed);
+		if(limitTop.get() && stick.getY() < 0)
+		{
+			spineTalon.set(-stick.getY());
+		}
+		else if(limitBot.get() && stick.getY() > 0)
+		{
+			spineTalon.set(-stick.getY());
+		}
+		else
+		{
+			stick.setRumble(RumbleType.kLeftRumble, 1);
+			stick.setRumble(RumbleType.kRightRumble, 1);
+		}
+
 	}
-	
+
 	public void stopSpine()
 	{
-		
+
 	}
 
 }

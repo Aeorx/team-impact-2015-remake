@@ -14,15 +14,13 @@ import org.usfirst.frc.team219.robot.commands.*;
 public class OI 
 {
 	public Joystick stick;
+	public Joystick spineController;
 	public Button a;
 	public OI()
 	{
 		stick = new Joystick(0);
+		spineController = new Joystick(1);
 		a = new JoystickButton(stick,1);
-	}
-	public Joystick getStick()
-	{
-		return stick;
 	}
 }
 

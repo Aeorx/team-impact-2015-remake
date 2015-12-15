@@ -2,7 +2,7 @@
 package org.usfirst.frc.team219.robot;
 
 import org.usfirst.frc.team219.robot.commands.Drive;
-import org.usfirst.frc.team219.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team219.robot.subsystems.*;
 
 import com.ni.vision.NIVision;
 import com.ni.vision.NIVision.DrawMode;
@@ -30,24 +30,14 @@ public class Robot extends IterativeRobot {
 	 */
 	public static OI oi;
 	public static DriveTrain driveTrain;
-	public static int session;
-	Image frame;
-	
+	public static Spine spine;
 	Command autonomousCommand;
 
 	public void robotInit() {
 		RobotMap.init();
 		driveTrain = new DriveTrain();
 		oi = new OI();
-		  frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
-
-	        // the camera name (ex "cam0") can be found through the roborio web interface
-	        session = NIVision.IMAQdxOpenCamera("cam0",
-	                NIVision.IMAQdxCameraControlMode.CameraControlModeController);
-	        NIVision.IMAQdxConfigureGrab(session);
-	        
-	        NIVision.IMAQdxStartAcquisition(session);
-	
+		spine = new Spine();
 	}
 
 
@@ -75,9 +65,7 @@ public class Robot extends IterativeRobot {
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
 		if (autonomousCommand != null) autonomousCommand.cancel();
-        NIVision.IMAQdxGrab(session, frame, 1);
-        CameraServer.getInstance().setImage(frame);
-    
+
 	}
 
 	/**
@@ -85,7 +73,6 @@ public class Robot extends IterativeRobot {
 	 * You can use it to reset subsystems before shutting down.
 	 */
 	public void disabledInit(){
-        NIVision.IMAQdxStopAcquisition(session);
 	}
 
 	/**
