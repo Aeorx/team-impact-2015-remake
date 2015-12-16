@@ -21,11 +21,10 @@ public class Arms extends Subsystem {
 		bottomRight = RobotMap.bottomRight;
 	}
 
-
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 }

@@ -15,11 +15,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class DriveTrain extends Subsystem{
 	RobotDrive robotDrive = RobotMap.driveTrain;
 
-	/**Makes the default command of the robot drive */
 	public DriveTrain()
 	{
 		
 	}
+	
+	/**Makes the default command of the robot drive */
 	@Override
 	protected void initDefaultCommand() 
 	{

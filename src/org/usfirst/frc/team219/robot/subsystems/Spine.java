@@ -27,7 +27,6 @@ public class Spine extends Subsystem{
 	@Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new MoveSpine());
-
 	}
 
 	public void controlSpine(Joystick stick)

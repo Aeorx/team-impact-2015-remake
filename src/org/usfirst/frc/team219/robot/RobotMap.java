@@ -34,23 +34,26 @@ public class RobotMap {
 	
 	public static void init()
 	{
-		frontLeft = new CANTalon(2);
+		frontLeft = new CANTalon(2);	//drive train
 		backLeft = new CANTalon(4);
 		frontRight = new CANTalon(1);
 		backRight = new CANTalon(3);
+		frontLeft.reverseOutput(true);
 		driveTrain = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
 		driveTrain.setInvertedMotor(MotorType.kFrontRight, true);
-		driveTrain.setInvertedMotor(MotorType.kRearRight,true);
+		driveTrain.setInvertedMotor(MotorType.kRearRight, true);
 		
-		spineTalon = new CANTalon(5);
+		spineTalon = new CANTalon(5);	//spine
 		spineEncoder = new Encoder(8, 9, false, EncodingType.k4X);
 		limitTop = new DigitalInput(0);
 		limitBot = new DigitalInput(1);
 		
-		topLeft = new Solenoid(6, 6);
+		topLeft = new Solenoid(6, 6);	//arms
 		topRight = new Solenoid(6, f);
 		bottomLeft = new Solenoid(6, 7);
 		bottomRight = new Solenoid(6, f);
+		
+		c = new Compressor(6);	//pneumatics
 	}
 
 }
