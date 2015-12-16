@@ -31,13 +31,18 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static DriveTrain driveTrain;
 	public static Spine spine;
+	public static Arms arms;
+	public static Pneumatics pneumatics;
 	Command autonomousCommand;
 
 	public void robotInit() {
 		RobotMap.init();
 		driveTrain = new DriveTrain();
-		oi = new OI();
 		spine = new Spine();
+		arms = new Arms();
+		pneumatics = new Pneumatics();
+		oi = new OI();
+
 	}
 
 	public void disabledPeriodic() {

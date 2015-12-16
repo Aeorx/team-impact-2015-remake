@@ -20,7 +20,8 @@ public class OI
 	{
 		stick = new Joystick(0);
 		spineController = new Joystick(1);
-		a = new JoystickButton(stick,1);
+		a = new JoystickButton(stick, 1);
+		a.whenPressed(new MongArms());
 	}
 }
 

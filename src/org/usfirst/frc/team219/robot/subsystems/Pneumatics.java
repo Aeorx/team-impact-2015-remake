@@ -1,11 +1,11 @@
 package org.usfirst.frc.team219.robot.subsystems;
 
-<<<<<<< HEAD
 import org.usfirst.frc.team219.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class Pneumatics {
+public class Pneumatics extends Subsystem{
 	
 	Compressor c;
 	boolean enabled;
@@ -18,16 +18,10 @@ public class Pneumatics {
 		pressureSwitch = c.getPressureSwitchValue();
 		current = c.getCompressorCurrent();
 	}
-=======
-import edu.wpi.first.wpilibj.command.Subsystem;
-
-public class Pneumatics extends Subsystem {
 
 	@Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
-		
->>>>>>> bac1b50907b5d62e3305150e77864e2c31b83839
+		c.setClosedLoopControl(true);
 	}
 
 }
