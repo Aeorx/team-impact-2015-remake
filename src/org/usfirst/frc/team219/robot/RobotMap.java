@@ -2,11 +2,13 @@ package org.usfirst.frc.team219.robot;
 
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.RobotDrive.MotorType;
+import edu.wpi.first.wpilibj.Solenoid;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -24,6 +26,11 @@ public class RobotMap {
 	public static DigitalInput limitTop;
 	public static DigitalInput limitBot;
 	public static CANTalon spineTalon;
+	public static Solenoid topLeft;
+	public static Solenoid topRight;
+	public static Solenoid bottomLeft;
+	public static Solenoid bottomRight;
+	public static Compressor c;
 	
 	public static void init()
 	{
@@ -40,6 +47,10 @@ public class RobotMap {
 		limitTop = new DigitalInput(0);
 		limitBot = new DigitalInput(1);
 		
+		topLeft = new Solenoid(6, 6);
+		topRight = new Solenoid(6, f);
+		bottomLeft = new Solenoid(6, 7);
+		bottomRight = new Solenoid(6, f);
 	}
 
 }
