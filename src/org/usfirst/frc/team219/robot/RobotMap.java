@@ -48,6 +48,9 @@ public class RobotMap {
 		limitTop = new DigitalInput(0);
 		limitBot = new DigitalInput(1);
 		
+		int testVariable = 47;
+		String meme = "hehe xD";
+		
 		topLeft = new Solenoid(6, 6);	//arms
 //		topRight = new Solenoid(6, f);
 		bottomLeft = new Solenoid(6, 7);
