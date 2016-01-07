@@ -24,4 +24,3 @@ public class OI
 		a.whenPressed(new MongArms());
 	}
 }
-
