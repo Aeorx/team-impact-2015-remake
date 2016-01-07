@@ -11,7 +11,7 @@ import org.usfirst.frc.team219.robot.commands.*;
  * interface to the commands and command groups that allow control of the robot.
  * OI stands for operator interface
  */
-public class OI 
+public class OI
 {
 	public Joystick stick;
 	public Joystick spineController;
@@ -23,4 +23,3 @@ public class OI
 		a = new JoystickButton(stick,1);
 	}
 }
-
