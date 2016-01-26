@@ -3,8 +3,9 @@ package org.usfirst.frc.team219.robot.subsystems;
 import org.usfirst.frc.team219.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class Pneumatics {
+public class Pneumatics extends Subsystem{
 	
 	Compressor c;
 	boolean enabled;
@@ -18,9 +19,9 @@ public class Pneumatics {
 		current = c.getCompressorCurrent();
 	}
 
+	@Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
-		
+		c.setClosedLoopControl(true);
 	}
 
 }

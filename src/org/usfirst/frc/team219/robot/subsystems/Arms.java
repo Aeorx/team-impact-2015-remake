@@ -9,10 +9,11 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 public class Arms extends Subsystem {
 
-	Solenoid topLeft;
+	Solenoid topLeft; //big piston (inner)
 	Solenoid topRight;
-	Solenoid bottomLeft;
+	Solenoid bottomLeft; //little piston (outer)
 	Solenoid bottomRight;
+	static boolean reverse = false;
 
 	public Arms()	{
 		topLeft = RobotMap.topLeft;
@@ -24,7 +25,21 @@ public class Arms extends Subsystem {
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
-		
+	}
+
+	public void cycleArms()	{
+		if(!topLeft.get() && !bottomLeft.get())	{
+			topLeft.set(true);
+			reverse = false;
+		}
+		else if(topLeft.get() && !bottomLeft.get() && !reverse)
+			topLeft.set(true);
+		else if(topLeft.get() && bottomLeft.get())	{
+			reverse = true;
+			bottomLeft.set(true);
+		}
+		else
+			topLeft.set(false);
 	}
 
 }

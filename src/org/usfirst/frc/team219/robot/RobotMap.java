@@ -48,10 +48,10 @@ public class RobotMap {
 		limitTop = new DigitalInput(0);
 		limitBot = new DigitalInput(1);
 		
-		topLeft = new Solenoid(6, 6);	//arms
-		topRight = new Solenoid(6, f);
-		bottomLeft = new Solenoid(6, 7);
-		bottomRight = new Solenoid(6, f);
+		topLeft = new Solenoid(6, 6);	//arms, big piston
+		//topRight = new Solenoid(6, f);
+		bottomLeft = new Solenoid(6, 7); //little piston
+		//bottomRight = new Solenoid(6, f);
 		
 		c = new Compressor(6);	//pneumatics
 	}
